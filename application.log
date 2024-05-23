@@ -1,0 +1,241 @@
+2024-05-22T23:31:44.131+09:00  INFO 52057 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : Starting TddApplicationKt using Java 17.0.8.1 with PID 52057 (/Users/yoojinan/Downloads/hhplus-tdd-jvm/build/classes/kotlin/main started by yoojinan in /Users/yoojinan/Downloads/hhplus-tdd-jvm)
+2024-05-22T23:31:44.132+09:00  INFO 52057 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : No active profile set, falling back to 1 default profile: "default"
+2024-05-22T23:31:44.629+09:00  INFO 52057 --- [hhplus-tdd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-22T23:31:44.634+09:00  INFO 52057 --- [hhplus-tdd] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-22T23:31:44.634+09:00  INFO 52057 --- [hhplus-tdd] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-05-22T23:31:44.658+09:00  INFO 52057 --- [hhplus-tdd] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-22T23:31:44.658+09:00  INFO 52057 --- [hhplus-tdd] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 504 ms
+2024-05-22T23:31:44.715+09:00 DEBUG 52057 --- [hhplus-tdd] [main] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-05-22T23:31:44.907+09:00 DEBUG 52057 --- [hhplus-tdd] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2024-05-22T23:31:44.934+09:00 DEBUG 52057 --- [hhplus-tdd] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-05-22T23:31:44.945+09:00 DEBUG 52057 --- [hhplus-tdd] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-05-22T23:31:44.958+09:00 DEBUG 52057 --- [hhplus-tdd] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-05-22T23:31:45.057+09:00  INFO 52057 --- [hhplus-tdd] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2024-05-22T23:31:45.088+09:00  INFO 52057 --- [hhplus-tdd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-22T23:31:45.096+09:00  INFO 52057 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : Started TddApplicationKt in 1.151 seconds (process running for 1.39)
+2024-05-22T23:31:45.513+09:00  INFO 52057 --- [hhplus-tdd] [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22T23:31:45.513+09:00  INFO 52057 --- [hhplus-tdd] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-22T23:31:45.513+09:00 DEBUG 52057 --- [hhplus-tdd] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-05-22T23:31:45.513+09:00 DEBUG 52057 --- [hhplus-tdd] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-05-22T23:31:45.513+09:00 DEBUG 52057 --- [hhplus-tdd] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-05-22T23:31:45.514+09:00 DEBUG 52057 --- [hhplus-tdd] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@42bae6f0
+2024-05-22T23:31:45.514+09:00 DEBUG 52057 --- [hhplus-tdd] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@3b8a6775
+2024-05-22T23:31:45.514+09:00 DEBUG 52057 --- [hhplus-tdd] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-05-22T23:31:45.514+09:00  INFO 52057 --- [hhplus-tdd] [RMI TCP Connection(2)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-22T23:31:48.920+09:00 DEBUG 52057 --- [hhplus-tdd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : PATCH "/points/1/charge", parameters={}
+2024-05-22T23:31:48.924+09:00 DEBUG 52057 --- [hhplus-tdd] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to io.hhplus.tdd.controller.PointController#chargePoints(long, ChargeRequest)
+2024-05-22T23:31:48.988+09:00 DEBUG 52057 --- [hhplus-tdd] [http-nio-8080-exec-1] o.s.web.method.HandlerMethod             : Could not resolve parameter [1] in public io.hhplus.tdd.domain.point.model.UserPoint io.hhplus.tdd.controller.PointController.chargePoints(long,io.hhplus.tdd.domain.point.dto.ChargeRequest): JSON parse error: Cannot construct instance of `io.hhplus.tdd.domain.point.dto.ChargeRequest` (although at least one Creator exists): cannot deserialize from Object value (no delegate- or property-based Creator)
+2024-05-22T23:31:48.989+09:00 DEBUG 52057 --- [hhplus-tdd] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler io.hhplus.tdd.ApiControllerAdvice#handleException(Exception, WebRequest)
+2024-05-22T23:31:49.062+09:00 DEBUG 52057 --- [hhplus-tdd] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/problem+json', given [*/*] and supported [application/problem+json]
+2024-05-22T23:31:49.064+09:00 DEBUG 52057 --- [hhplus-tdd] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ProblemDetail[type='about:blank', title='Bad Request', status=400, detail='Failed to read request',  (truncated)...]
+2024-05-22T23:31:49.069+09:00 DEBUG 52057 --- [hhplus-tdd] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `io.hhplus.tdd.domain.point.dto.ChargeRequest` (although at least one Creator exists): cannot deserialize from Object value (no delegate- or property-based Creator)]
+2024-05-22T23:31:49.069+09:00 DEBUG 52057 --- [hhplus-tdd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2024-05-22T23:35:37.521+09:00  INFO 52193 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : Starting TddApplicationKt using Java 17.0.8.1 with PID 52193 (/Users/yoojinan/Downloads/hhplus-tdd-jvm/build/classes/kotlin/main started by yoojinan in /Users/yoojinan/Downloads/hhplus-tdd-jvm)
+2024-05-22T23:35:37.523+09:00  INFO 52193 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : No active profile set, falling back to 1 default profile: "default"
+2024-05-22T23:35:38.174+09:00  INFO 52193 --- [hhplus-tdd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-22T23:35:38.181+09:00  INFO 52193 --- [hhplus-tdd] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-22T23:35:38.181+09:00  INFO 52193 --- [hhplus-tdd] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-05-22T23:35:38.219+09:00  INFO 52193 --- [hhplus-tdd] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-22T23:35:38.219+09:00  INFO 52193 --- [hhplus-tdd] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 662 ms
+2024-05-22T23:35:38.332+09:00 DEBUG 52193 --- [hhplus-tdd] [main] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-05-22T23:35:38.801+09:00 DEBUG 52193 --- [hhplus-tdd] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2024-05-22T23:35:38.857+09:00 DEBUG 52193 --- [hhplus-tdd] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-05-22T23:35:38.872+09:00 DEBUG 52193 --- [hhplus-tdd] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-05-22T23:35:38.896+09:00 DEBUG 52193 --- [hhplus-tdd] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-05-22T23:35:39.037+09:00  INFO 52193 --- [hhplus-tdd] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2024-05-22T23:35:39.068+09:00  INFO 52193 --- [hhplus-tdd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-22T23:35:39.077+09:00  INFO 52193 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : Started TddApplicationKt in 1.784 seconds (process running for 2.218)
+2024-05-22T23:35:39.207+09:00  INFO 52193 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22T23:35:39.207+09:00  INFO 52193 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-22T23:35:39.207+09:00 DEBUG 52193 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-05-22T23:35:39.207+09:00 DEBUG 52193 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-05-22T23:35:39.207+09:00 DEBUG 52193 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-05-22T23:35:39.208+09:00 DEBUG 52193 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4b8c8f0d
+2024-05-22T23:35:39.208+09:00 DEBUG 52193 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@271db1a7
+2024-05-22T23:35:39.208+09:00 DEBUG 52193 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-05-22T23:35:39.208+09:00  INFO 52193 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-22T23:35:42.041+09:00 DEBUG 52193 --- [hhplus-tdd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : PATCH "/points/1/charge", parameters={}
+2024-05-22T23:35:42.047+09:00 DEBUG 52193 --- [hhplus-tdd] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to io.hhplus.tdd.controller.PointController#chargePoints(long, long)
+2024-05-22T23:35:42.128+09:00 DEBUG 52193 --- [hhplus-tdd] [http-nio-8080-exec-1] o.s.web.method.HandlerMethod             : Could not resolve parameter [1] in public io.hhplus.tdd.domain.point.model.UserPoint io.hhplus.tdd.controller.PointController.chargePoints(long,long): JSON parse error: Cannot deserialize value of type `long` from Object value (token `JsonToken.START_OBJECT`)
+2024-05-22T23:35:42.129+09:00 DEBUG 52193 --- [hhplus-tdd] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler io.hhplus.tdd.ApiControllerAdvice#handleException(Exception, WebRequest)
+2024-05-22T23:35:42.200+09:00 DEBUG 52193 --- [hhplus-tdd] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/problem+json', given [*/*] and supported [application/problem+json]
+2024-05-22T23:35:42.202+09:00 DEBUG 52193 --- [hhplus-tdd] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ProblemDetail[type='about:blank', title='Bad Request', status=400, detail='Failed to read request',  (truncated)...]
+2024-05-22T23:35:42.208+09:00 DEBUG 52193 --- [hhplus-tdd] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot deserialize value of type `long` from Object value (token `JsonToken.START_OBJECT`)]
+2024-05-22T23:35:42.208+09:00 DEBUG 52193 --- [hhplus-tdd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2024-05-22T23:38:19.869+09:00  INFO 52218 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : Starting TddApplicationKt using Java 17.0.8.1 with PID 52218 (/Users/yoojinan/Downloads/hhplus-tdd-jvm/build/classes/kotlin/main started by yoojinan in /Users/yoojinan/Downloads/hhplus-tdd-jvm)
+2024-05-22T23:38:19.871+09:00  INFO 52218 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : No active profile set, falling back to 1 default profile: "default"
+2024-05-22T23:38:20.810+09:00  INFO 52218 --- [hhplus-tdd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-22T23:38:20.817+09:00  INFO 52218 --- [hhplus-tdd] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-22T23:38:20.817+09:00  INFO 52218 --- [hhplus-tdd] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-05-22T23:38:20.861+09:00  INFO 52218 --- [hhplus-tdd] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-22T23:38:20.862+09:00  INFO 52218 --- [hhplus-tdd] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 966 ms
+2024-05-22T23:38:20.944+09:00 DEBUG 52218 --- [hhplus-tdd] [main] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-05-22T23:38:21.174+09:00 DEBUG 52218 --- [hhplus-tdd] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2024-05-22T23:38:21.205+09:00 DEBUG 52218 --- [hhplus-tdd] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-05-22T23:38:21.218+09:00 DEBUG 52218 --- [hhplus-tdd] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-05-22T23:38:21.234+09:00 DEBUG 52218 --- [hhplus-tdd] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-05-22T23:38:21.351+09:00  INFO 52218 --- [hhplus-tdd] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2024-05-22T23:38:21.380+09:00  INFO 52218 --- [hhplus-tdd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-22T23:38:21.389+09:00  INFO 52218 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : Started TddApplicationKt in 1.739 seconds (process running for 2.235)
+2024-05-22T23:38:21.551+09:00  INFO 52218 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22T23:38:21.551+09:00  INFO 52218 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-22T23:38:21.551+09:00 DEBUG 52218 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-05-22T23:38:21.551+09:00 DEBUG 52218 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-05-22T23:38:21.551+09:00 DEBUG 52218 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-05-22T23:38:21.552+09:00 DEBUG 52218 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@65f646bd
+2024-05-22T23:38:21.552+09:00 DEBUG 52218 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@50e8088b
+2024-05-22T23:38:21.552+09:00 DEBUG 52218 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-05-22T23:38:21.552+09:00  INFO 52218 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-22T23:38:25.713+09:00 DEBUG 52218 --- [hhplus-tdd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : PATCH "/points/1/charge", parameters={}
+2024-05-22T23:38:25.718+09:00 DEBUG 52218 --- [hhplus-tdd] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to io.hhplus.tdd.controller.PointController#chargePoints(long, ChargeRequest)
+2024-05-22T23:38:25.789+09:00 DEBUG 52218 --- [hhplus-tdd] [http-nio-8080-exec-1] o.s.web.method.HandlerMethod             : Could not resolve parameter [1] in public io.hhplus.tdd.domain.point.model.UserPoint io.hhplus.tdd.controller.PointController.chargePoints(long,io.hhplus.tdd.domain.point.dto.ChargeRequest): JSON parse error: Cannot construct instance of `io.hhplus.tdd.domain.point.dto.ChargeRequest` (although at least one Creator exists): cannot deserialize from Object value (no delegate- or property-based Creator)
+2024-05-22T23:38:25.790+09:00 DEBUG 52218 --- [hhplus-tdd] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler io.hhplus.tdd.ApiControllerAdvice#handleException(Exception, WebRequest)
+2024-05-22T23:38:25.881+09:00 DEBUG 52218 --- [hhplus-tdd] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/problem+json', given [*/*] and supported [application/problem+json]
+2024-05-22T23:38:25.883+09:00 DEBUG 52218 --- [hhplus-tdd] [http-nio-8080-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ProblemDetail[type='about:blank', title='Bad Request', status=400, detail='Failed to read request',  (truncated)...]
+2024-05-22T23:38:25.888+09:00 DEBUG 52218 --- [hhplus-tdd] [http-nio-8080-exec-1] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `io.hhplus.tdd.domain.point.dto.ChargeRequest` (although at least one Creator exists): cannot deserialize from Object value (no delegate- or property-based Creator)]
+2024-05-22T23:38:25.889+09:00 DEBUG 52218 --- [hhplus-tdd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
+2024-05-22T23:40:06.308+09:00  INFO 52259 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : Starting TddApplicationKt using Java 17.0.8.1 with PID 52259 (/Users/yoojinan/Downloads/hhplus-tdd-jvm/build/classes/kotlin/main started by yoojinan in /Users/yoojinan/Downloads/hhplus-tdd-jvm)
+2024-05-22T23:40:06.310+09:00  INFO 52259 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : No active profile set, falling back to 1 default profile: "default"
+2024-05-22T23:40:06.978+09:00  INFO 52259 --- [hhplus-tdd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-22T23:40:06.984+09:00  INFO 52259 --- [hhplus-tdd] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-22T23:40:06.984+09:00  INFO 52259 --- [hhplus-tdd] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-05-22T23:40:07.012+09:00  INFO 52259 --- [hhplus-tdd] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-22T23:40:07.012+09:00  INFO 52259 --- [hhplus-tdd] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 676 ms
+2024-05-22T23:40:07.087+09:00 DEBUG 52259 --- [hhplus-tdd] [main] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-05-22T23:40:07.241+09:00 DEBUG 52259 --- [hhplus-tdd] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2024-05-22T23:40:07.280+09:00 DEBUG 52259 --- [hhplus-tdd] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-05-22T23:40:07.296+09:00 DEBUG 52259 --- [hhplus-tdd] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-05-22T23:40:07.376+09:00 DEBUG 52259 --- [hhplus-tdd] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-05-22T23:40:07.605+09:00  INFO 52259 --- [hhplus-tdd] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2024-05-22T23:40:07.643+09:00  INFO 52259 --- [hhplus-tdd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-22T23:40:07.652+09:00  INFO 52259 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : Started TddApplicationKt in 1.568 seconds (process running for 1.826)
+2024-05-22T23:40:08.221+09:00  INFO 52259 --- [hhplus-tdd] [RMI TCP Connection(4)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22T23:40:08.221+09:00  INFO 52259 --- [hhplus-tdd] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-22T23:40:08.222+09:00 DEBUG 52259 --- [hhplus-tdd] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-05-22T23:40:08.222+09:00 DEBUG 52259 --- [hhplus-tdd] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-05-22T23:40:08.222+09:00 DEBUG 52259 --- [hhplus-tdd] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-05-22T23:40:08.223+09:00 DEBUG 52259 --- [hhplus-tdd] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@69dc1a7e
+2024-05-22T23:40:08.224+09:00 DEBUG 52259 --- [hhplus-tdd] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@76415825
+2024-05-22T23:40:08.224+09:00 DEBUG 52259 --- [hhplus-tdd] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-05-22T23:40:08.224+09:00  INFO 52259 --- [hhplus-tdd] [RMI TCP Connection(4)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-05-22T23:40:11.698+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : PATCH "/points/1/charge", parameters={}
+2024-05-22T23:40:11.703+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to io.hhplus.tdd.controller.PointController#chargePoints(long, ChargeRequest)
+2024-05-22T23:40:11.740+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [ChargeRequest(amount=10000)]
+2024-05-22T23:40:11.747+09:00  INFO 52259 --- [hhplus-tdd] [http-nio-8080-exec-2] i.hhplus.tdd.controller.PointController  : 유저(1)가 10000 포인트를 충전했습니다.
+2024-05-22T23:40:11.753+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-05-22T23:40:11.755+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-2] m.m.a.RequestResponseBodyMethodProcessor : Writing [UserPoint(id=1, point=10000, updateMillis=1716388811746)]
+2024-05-22T23:40:11.762+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-22T23:40:59.315+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : PATCH "/points/1/use", parameters={}
+2024-05-22T23:40:59.320+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to io.hhplus.tdd.controller.PointController#usePoints(long, ChargeRequest)
+2024-05-22T23:40:59.328+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [ChargeRequest(amount=1000)]
+2024-05-22T23:40:59.330+09:00  INFO 52259 --- [hhplus-tdd] [http-nio-8080-exec-3] i.hhplus.tdd.controller.PointController  : 유저(1)가 1000 포인트를 이용했습니다.
+2024-05-22T23:40:59.331+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-05-22T23:40:59.331+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [UserPoint(id=1, point=1000, updateMillis=1716388859330)]
+2024-05-22T23:40:59.332+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-22T23:42:11.224+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : PATCH "/points/1/histo", parameters={}
+2024-05-22T23:42:11.251+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2024-05-22T23:42:11.254+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-5] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
+2024-05-22T23:42:11.258+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler io.hhplus.tdd.ApiControllerAdvice#handleException(Exception, WebRequest)
+2024-05-22T23:42:11.298+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/problem+json', given [*/*] and supported [application/problem+json]
+2024-05-22T23:42:11.301+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ProblemDetail[type='about:blank', title='Not Found', status=404, detail='No static resource points/1 (truncated)...]
+2024-05-22T23:42:11.302+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-5] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource points/1/histo.]
+2024-05-22T23:42:11.302+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
+2024-05-22T23:42:16.853+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/points/1/histories", parameters={}
+2024-05-22T23:42:16.857+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-7] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to io.hhplus.tdd.controller.PointController#findHistory(long)
+2024-05-22T23:42:16.867+09:00  INFO 52259 --- [hhplus-tdd] [http-nio-8080-exec-7] i.hhplus.tdd.controller.PointController  : 유저(1)가 포인터 충전/이용 내역([PointHistory(id=1, userId=1, type=CHARGE, amount=10000, timeMillis=1716388811746), PointHistory(id=2, userId=1, type=USE, amount=1000, timeMillis=1716388859330)])을 조회했습니다.
+2024-05-22T23:42:16.869+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-05-22T23:42:16.870+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-7] m.m.a.RequestResponseBodyMethodProcessor : Writing [[PointHistory(id=1, userId=1, type=CHARGE, amount=10000, timeMillis=1716388811746), PointHistory(id= (truncated)...]
+2024-05-22T23:42:16.878+09:00 DEBUG 52259 --- [hhplus-tdd] [http-nio-8080-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-22T23:46:38.094+09:00  INFO 52306 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : Starting TddApplicationKt using Java 17.0.8.1 with PID 52306 (/Users/yoojinan/Downloads/hhplus-tdd-jvm/build/classes/kotlin/main started by yoojinan in /Users/yoojinan/Downloads/hhplus-tdd-jvm)
+2024-05-22T23:46:38.095+09:00  INFO 52306 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : No active profile set, falling back to 1 default profile: "default"
+2024-05-22T23:46:38.599+09:00  INFO 52306 --- [hhplus-tdd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-22T23:46:38.603+09:00  INFO 52306 --- [hhplus-tdd] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-22T23:46:38.603+09:00  INFO 52306 --- [hhplus-tdd] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-05-22T23:46:38.625+09:00  INFO 52306 --- [hhplus-tdd] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-22T23:46:38.625+09:00  INFO 52306 --- [hhplus-tdd] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 508 ms
+2024-05-22T23:46:38.685+09:00 DEBUG 52306 --- [hhplus-tdd] [main] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-05-22T23:46:38.758+09:00 DEBUG 52306 --- [hhplus-tdd] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2024-05-22T23:46:38.785+09:00 DEBUG 52306 --- [hhplus-tdd] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-05-22T23:46:38.796+09:00 DEBUG 52306 --- [hhplus-tdd] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-05-22T23:46:38.811+09:00 DEBUG 52306 --- [hhplus-tdd] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-05-22T23:46:38.921+09:00  INFO 52306 --- [hhplus-tdd] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2024-05-22T23:46:38.953+09:00  INFO 52306 --- [hhplus-tdd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-22T23:46:38.962+09:00  INFO 52306 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : Started TddApplicationKt in 1.053 seconds (process running for 1.275)
+2024-05-22T23:46:39.535+09:00  INFO 52306 --- [hhplus-tdd] [RMI TCP Connection(3)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22T23:46:39.535+09:00  INFO 52306 --- [hhplus-tdd] [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-22T23:46:39.535+09:00 DEBUG 52306 --- [hhplus-tdd] [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-05-22T23:46:39.535+09:00 DEBUG 52306 --- [hhplus-tdd] [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-05-22T23:46:39.535+09:00 DEBUG 52306 --- [hhplus-tdd] [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-05-22T23:46:39.536+09:00 DEBUG 52306 --- [hhplus-tdd] [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4785669d
+2024-05-22T23:46:39.536+09:00 DEBUG 52306 --- [hhplus-tdd] [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@58b06071
+2024-05-22T23:46:39.536+09:00 DEBUG 52306 --- [hhplus-tdd] [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-05-22T23:46:39.536+09:00  INFO 52306 --- [hhplus-tdd] [RMI TCP Connection(3)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-22T23:50:42.844+09:00  INFO 52387 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : Starting TddApplicationKt using Java 17.0.8.1 with PID 52387 (/Users/yoojinan/Downloads/hhplus-tdd-jvm/build/classes/kotlin/main started by yoojinan in /Users/yoojinan/Downloads/hhplus-tdd-jvm)
+2024-05-22T23:50:42.845+09:00  INFO 52387 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : No active profile set, falling back to 1 default profile: "default"
+2024-05-22T23:50:43.404+09:00  INFO 52387 --- [hhplus-tdd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-22T23:50:43.409+09:00  INFO 52387 --- [hhplus-tdd] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-22T23:50:43.409+09:00  INFO 52387 --- [hhplus-tdd] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-05-22T23:50:43.433+09:00  INFO 52387 --- [hhplus-tdd] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-22T23:50:43.433+09:00  INFO 52387 --- [hhplus-tdd] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 559 ms
+2024-05-22T23:50:43.498+09:00 DEBUG 52387 --- [hhplus-tdd] [main] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-05-22T23:50:43.572+09:00 DEBUG 52387 --- [hhplus-tdd] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2024-05-22T23:50:43.597+09:00 DEBUG 52387 --- [hhplus-tdd] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-05-22T23:50:43.609+09:00 DEBUG 52387 --- [hhplus-tdd] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-05-22T23:50:43.628+09:00 DEBUG 52387 --- [hhplus-tdd] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-05-22T23:50:43.746+09:00  INFO 52387 --- [hhplus-tdd] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2024-05-22T23:50:43.776+09:00  INFO 52387 --- [hhplus-tdd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-22T23:50:43.785+09:00  INFO 52387 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : Started TddApplicationKt in 1.134 seconds (process running for 1.5)
+2024-05-22T23:50:44.113+09:00  INFO 52387 --- [hhplus-tdd] [RMI TCP Connection(1)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22T23:50:44.113+09:00  INFO 52387 --- [hhplus-tdd] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-22T23:50:44.113+09:00 DEBUG 52387 --- [hhplus-tdd] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-05-22T23:50:44.113+09:00 DEBUG 52387 --- [hhplus-tdd] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-05-22T23:50:44.113+09:00 DEBUG 52387 --- [hhplus-tdd] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-05-22T23:50:44.114+09:00 DEBUG 52387 --- [hhplus-tdd] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@2779f732
+2024-05-22T23:50:44.114+09:00 DEBUG 52387 --- [hhplus-tdd] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@1f32469e
+2024-05-22T23:50:44.114+09:00 DEBUG 52387 --- [hhplus-tdd] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-05-22T23:50:44.114+09:00  INFO 52387 --- [hhplus-tdd] [RMI TCP Connection(1)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2024-05-22T23:50:45.964+09:00 DEBUG 52387 --- [hhplus-tdd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/points/1/histories", parameters={}
+2024-05-22T23:50:45.968+09:00 DEBUG 52387 --- [hhplus-tdd] [http-nio-8080-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to io.hhplus.tdd.controller.PointController#findHistory(long)
+2024-05-22T23:50:45.982+09:00  INFO 52387 --- [hhplus-tdd] [http-nio-8080-exec-1] i.hhplus.tdd.controller.PointController  : 유저(1)가 포인터 충전/이용 내역([])을 조회했습니다.
+2024-05-22T23:50:45.986+09:00 DEBUG 52387 --- [hhplus-tdd] [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-05-22T23:50:45.987+09:00 DEBUG 52387 --- [hhplus-tdd] [http-nio-8080-exec-1] m.m.a.RequestResponseBodyMethodProcessor : Writing [[]]
+2024-05-22T23:50:45.997+09:00 DEBUG 52387 --- [hhplus-tdd] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-22T23:50:59.830+09:00 DEBUG 52387 --- [hhplus-tdd] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : PATCH "/points/1/charge", parameters={}
+2024-05-22T23:50:59.841+09:00 DEBUG 52387 --- [hhplus-tdd] [http-nio-8080-exec-3] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to io.hhplus.tdd.controller.PointController#chargePoints(long, ChargeRequest)
+2024-05-22T23:50:59.882+09:00 DEBUG 52387 --- [hhplus-tdd] [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Read "application/json;charset=UTF-8" to [ChargeRequest(amount=1000)]
+2024-05-22T23:50:59.886+09:00  INFO 52387 --- [hhplus-tdd] [http-nio-8080-exec-3] i.hhplus.tdd.controller.PointController  : 유저(1)가 1000 포인트를 충전했습니다.
+2024-05-22T23:50:59.889+09:00 DEBUG 52387 --- [hhplus-tdd] [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Using 'application/json', given [*/*] and supported [application/json, application/*+json]
+2024-05-22T23:50:59.891+09:00 DEBUG 52387 --- [hhplus-tdd] [http-nio-8080-exec-3] m.m.a.RequestResponseBodyMethodProcessor : Writing [UserPoint(id=1, point=1000, updateMillis=1716389459885)]
+2024-05-22T23:50:59.892+09:00 DEBUG 52387 --- [hhplus-tdd] [http-nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
+2024-05-22T23:54:05.663+09:00  INFO 52452 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : Starting TddApplicationKt using Java 17.0.8.1 with PID 52452 (/Users/yoojinan/Downloads/hhplus-tdd-jvm/build/classes/kotlin/main started by yoojinan in /Users/yoojinan/Downloads/hhplus-tdd-jvm)
+2024-05-22T23:54:05.664+09:00  INFO 52452 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : No active profile set, falling back to 1 default profile: "default"
+2024-05-22T23:54:06.517+09:00  INFO 52452 --- [hhplus-tdd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-05-22T23:54:06.522+09:00  INFO 52452 --- [hhplus-tdd] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-05-22T23:54:06.522+09:00  INFO 52452 --- [hhplus-tdd] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2024-05-22T23:54:06.585+09:00  INFO 52452 --- [hhplus-tdd] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-05-22T23:54:06.585+09:00  INFO 52452 --- [hhplus-tdd] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 894 ms
+2024-05-22T23:54:06.703+09:00 DEBUG 52452 --- [hhplus-tdd] [main] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-05-22T23:54:07.229+09:00 DEBUG 52452 --- [hhplus-tdd] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 6 mappings in 'requestMappingHandlerMapping'
+2024-05-22T23:54:07.260+09:00 DEBUG 52452 --- [hhplus-tdd] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-05-22T23:54:07.279+09:00 DEBUG 52452 --- [hhplus-tdd] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-05-22T23:54:07.305+09:00 DEBUG 52452 --- [hhplus-tdd] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-05-22T23:54:07.440+09:00  INFO 52452 --- [hhplus-tdd] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 14 endpoint(s) beneath base path '/actuator'
+2024-05-22T23:54:07.475+09:00  INFO 52452 --- [hhplus-tdd] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-05-22T23:54:07.484+09:00  INFO 52452 --- [hhplus-tdd] [main] io.hhplus.tdd.TddApplicationKt           : Started TddApplicationKt in 2.042 seconds (process running for 2.311)
+2024-05-22T23:54:08.041+09:00  INFO 52452 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-05-22T23:54:08.041+09:00  INFO 52452 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-05-22T23:54:08.041+09:00 DEBUG 52452 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-05-22T23:54:08.041+09:00 DEBUG 52452 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-05-22T23:54:08.041+09:00 DEBUG 52452 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-05-22T23:54:08.043+09:00 DEBUG 52452 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5c0e10cd
+2024-05-22T23:54:08.043+09:00 DEBUG 52452 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@1173ccb7
+2024-05-22T23:54:08.043+09:00 DEBUG 52452 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-05-22T23:54:08.044+09:00  INFO 52452 --- [hhplus-tdd] [RMI TCP Connection(6)-127.0.0.1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2024-05-22T23:54:10.124+09:00 DEBUG 52452 --- [hhplus-tdd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : PATCH "/points/1/charge", parameters={}
+2024-05-22T23:54:10.128+09:00 DEBUG 52452 --- [hhplus-tdd] [http-nio-8080-exec-2] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to io.hhplus.tdd.controller.PointController#chargePoints(long, ChargeRequest)
+2024-05-22T23:54:10.200+09:00 DEBUG 52452 --- [hhplus-tdd] [http-nio-8080-exec-2] o.s.web.method.HandlerMethod             : Could not resolve parameter [1] in public io.hhplus.tdd.domain.point.model.UserPoint io.hhplus.tdd.controller.PointController.chargePoints(long,io.hhplus.tdd.domain.point.dto.ChargeRequest): JSON parse error: Cannot construct instance of `io.hhplus.tdd.domain.point.dto.ChargeRequest` (although at least one Creator exists): cannot deserialize from Object value (no delegate- or property-based Creator)
+2024-05-22T23:54:10.201+09:00 DEBUG 52452 --- [hhplus-tdd] [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Using @ExceptionHandler io.hhplus.tdd.ApiControllerAdvice#handleException(Exception, WebRequest)
+2024-05-22T23:54:10.267+09:00 DEBUG 52452 --- [hhplus-tdd] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/problem+json', given [*/*] and supported [application/problem+json]
+2024-05-22T23:54:10.268+09:00 DEBUG 52452 --- [hhplus-tdd] [http-nio-8080-exec-2] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [ProblemDetail[type='about:blank', title='Bad Request', status=400, detail='Failed to read request',  (truncated)...]
+2024-05-22T23:54:10.274+09:00 DEBUG 52452 --- [hhplus-tdd] [http-nio-8080-exec-2] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Cannot construct instance of `io.hhplus.tdd.domain.point.dto.ChargeRequest` (although at least one Creator exists): cannot deserialize from Object value (no delegate- or property-based Creator)]
+2024-05-22T23:54:10.274+09:00 DEBUG 52452 --- [hhplus-tdd] [http-nio-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed 400 BAD_REQUEST
