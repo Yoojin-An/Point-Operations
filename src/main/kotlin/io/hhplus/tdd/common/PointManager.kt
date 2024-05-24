@@ -8,7 +8,7 @@ import io.hhplus.tdd.domain.point.model.UserPoint
 import org.springframework.stereotype.Component
 
 @Component
-class UserPointManager (
+class PointManager (
     private val userPointRepository: UserPointRepository,
     private val pointHistoryRepository: PointHistoryRepository,
     ) {
@@ -44,7 +44,7 @@ class UserPointManager (
         return userPoint
     }
 
-    fun getHistories(userId: Long): List<PointHistory> {
+    fun getHistory(userId: Long): List<PointHistory> {
         validateId(userId)
         val userHistory = pointHistoryRepository.selectAllByUserId(userId)
         return userHistory

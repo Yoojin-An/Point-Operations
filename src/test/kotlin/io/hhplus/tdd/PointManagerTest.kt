@@ -34,6 +34,7 @@ class UserPointManagerTest @Autowired constructor(
         // then: 최초 서비스를 이용하는 유저이므로 현재 포인트가 0인지 검증
         assertEquals(0, point)
     }
+    
     @Test
     fun 유효하지_않은_아이디에_대한_현재_포인트를_조회하면_실패한다() {
         // given: 유효하지 않은 아이디
