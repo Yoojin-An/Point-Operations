@@ -1,6 +1,5 @@
 package io.hhplus.tdd.common
 
-import io.hhplus.tdd.domain.point.PointValidator
 import io.hhplus.tdd.domain.point.model.UserPoint
 import org.springframework.stereotype.Component
 
@@ -10,7 +9,6 @@ import org.springframework.stereotype.Component
 @Component
 class UserPointTable {
     private val table = HashMap<Long, UserPoint>()
-    private val pointValidator = PointValidator()
 
     fun selectById(id: Long): UserPoint {
         Thread.sleep(Math.random().toLong() * 200L)
@@ -19,7 +17,6 @@ class UserPointTable {
 
     fun insertOrUpdate(id: Long, amount: Long): UserPoint {
         Thread.sleep(Math.random().toLong() * 300L)
-//        val validatedAmount = pointValidator.isAmountValidate(amount)
         val userPoint = UserPoint(id = id, point = amount, updateMillis = System.currentTimeMillis())
         table[id] = userPoint
         return userPoint
