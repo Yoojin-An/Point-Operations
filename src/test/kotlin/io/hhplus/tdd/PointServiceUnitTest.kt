@@ -3,6 +3,7 @@ package io.hhplus.tdd
 import org.junit.jupiter.api.Assertions.assertEquals
 import io.hhplus.tdd.domain.point.PointService
 import io.hhplus.tdd.domain.point.model.TransactionType
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.springframework.beans.factory.annotation.Autowired
@@ -16,7 +17,7 @@ class PointServiceUnitTest @Autowired constructor (
      * 포인트 조회 테스트
      */
     @Test
-    fun `포인트_조회에_성공한다`() {
+    fun `포인트_충전_또는_사용_이력이_없는_경우에도_조회에_성공한다`() {
         // given
         val id: Long = 1L
 
@@ -25,6 +26,20 @@ class PointServiceUnitTest @Autowired constructor (
 
         // then
         assertEquals(0, userPoint.point)
+    }
+
+    @Test
+    fun `포인트_충전_또는_사용_이력이_있는_경우_포인트_조회에_성공한다`() {
+        // given
+        val id: Long = 2L
+
+        // when: 2번 충전했음을 가정
+        pointService.chargePoints(id, 10000L)
+        pointService.chargePoints(id, 20000L)
+        val userPoint = pointService.getPoints(id)
+
+        // then
+        assertEquals(30000L, userPoint.point)
     }
 
     @Test
@@ -38,7 +53,7 @@ class PointServiceUnitTest @Autowired constructor (
         }
 
         // then
-        assertEquals("유효하지 않은 아이디입니다.", exception.message)
+        assertEquals("아이디가 유효하지 않습니다.", exception.message)
     }
 
     /**
@@ -47,7 +62,7 @@ class PointServiceUnitTest @Autowired constructor (
     @Test
     fun `포인트_충전_또는_사용_이력이_없어도_포인트_내역_조회에_성공한다`() {
         // given
-        val id: Long = 1L
+        val id: Long = 4L
 
         // when: 신규 유저의 pointHistory 조회
         val pointHistory = pointService.getHistory(id)
@@ -59,7 +74,7 @@ class PointServiceUnitTest @Autowired constructor (
     @Test
     fun `포인트_충전_또는_사용_이력이_있는_경우_포인트_내역_조회에_성공한다`() {
         // given
-        val id: Long = 1L
+        val id: Long = 5L
 
         // when: 3번 충전, 1번 사용했음을 가정
         pointService.chargePoints(id, 10000L)
@@ -92,7 +107,7 @@ class PointServiceUnitTest @Autowired constructor (
     @Test
     fun `포인트_충전에_성공한다`() {
         // given
-        val id = 1L
+        val id = 6L
 
         // when
         val userPoint = pointService.chargePoints(id, 10000L)
@@ -104,7 +119,7 @@ class PointServiceUnitTest @Autowired constructor (
     @Test
     fun `충전할_포인트가_음수이거나_0이면_충전에_실패한다`() {
         // given
-        val id = 1L
+        val id = 7L
         val amount = -500L
 
         // when & then
@@ -133,7 +148,7 @@ class PointServiceUnitTest @Autowired constructor (
     @Test
     fun 포인트_사용에_성공한다() {
         // given
-        val id = 1L
+        val id = 8L
         val amountToUse = 5000L
 
         // when: 잔고에 100000 포인트가 있음을 가정
@@ -148,7 +163,7 @@ class PointServiceUnitTest @Autowired constructor (
     @Test
     fun `잔고_부족으로_포인트_사용에_실패한다`() {
         // given
-        val id = 1L
+        val id = 9L
         val amountToUse = 1000000L
 
         // when: 잔고가 10000 포인트 있는 상황을 가정
@@ -164,7 +179,7 @@ class PointServiceUnitTest @Autowired constructor (
     @Test
     fun `사용할_포인트가_0이거나_음수이면_포인트_사용에_실패한다`() {
         // given
-        val id = 1L
+        val id = 10L
         val amountToUse = 0L
 
         // when & then
