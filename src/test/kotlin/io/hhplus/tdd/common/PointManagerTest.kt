@@ -1,4 +1,4 @@
-package io.hhplus.tdd
+package io.hhplus.tdd.common
 
 import io.hhplus.tdd.common.PointManager
 import io.hhplus.tdd.domain.point.model.TransactionType

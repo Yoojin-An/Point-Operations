@@ -1,4 +1,4 @@
-package io.hhplus.tdd
+package io.hhplus.tdd.service
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import io.hhplus.tdd.domain.point.PointService
