@@ -1,6 +1,7 @@
 package io.hhplus.tdd
 
-import io.hhplus.tdd.common.UserPointManager
+import io.hhplus.tdd.common.PointManager
+import io.hhplus.tdd.domain.point.model.TransactionType
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
@@ -9,10 +10,10 @@ import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
 class UserPointManagerTest @Autowired constructor(
-    private val pointManager: UserPointManager
+    private val pointManager: PointManager
 ) {
     @Test
-    fun 유효한_아이디가_아니면_IllegalArgumentException_을_던진다() {
+    fun 유효한_아이디값이_아니면_IllegalArgumentException을_던진다() {
         // given: 유효하지 않은 아이디
         val invalidUserId = -1L
 
@@ -24,40 +25,118 @@ class UserPointManagerTest @Autowired constructor(
     }
 
     @Test
-    fun 유효한_아이디에_대한_현재_포인트를_조회한다() {
-        // given: 유효한 아이디
-        val validId = 1L
+    fun 유효한_포인트값이_아니면_IllegalArgumentException을_던진다() {
+        // given: 유효하지 않은 사용/충전 포인트
+        val invalidAmount= -1L
 
-        // when: 포인트 조회
-        val point = pointManager.getPoints(validId).point
-
-        // then: 최초 서비스를 이용하는 유저이므로 현재 포인트가 0인지 검증
-        assertEquals(0, point)
-    }
-    
-    @Test
-    fun 유효하지_않은_아이디에_대한_현재_포인트를_조회하면_실패한다() {
-        // given: 유효하지 않은 아이디
-        val validId = 0L
-
-        // when & then: 포인트 조회 시 IllegalArgumentException 발생 검증
-        assertThrows<IllegalArgumentException> {
-            pointManager.getPoints(validId).point
+        // when & then: 유효하지 않은 포인트 사용 시 IllegalArgumentException 예외 발생 및 예외 메세지 검증
+        val exception = assertThrows<IllegalArgumentException> {
+            pointManager.validateAmount(invalidAmount, TransactionType.USE)
         }
+        assertEquals("사용할 포인트는 양수여야 합니다.", exception.message)
     }
 
+    @Test
+    fun 포인트_사용시_잔고가_부족하면_IllegalArgumentException을_던진다() {
+        // given: 잔고가 부족한 상황
+        val id = 1L
+        val amountToUse = 5000L
+
+        // when & then: 초기 포인트 0인 상황에서 5000 포인트 사용 시 IllegalArgumentException 예외 발생 및 예외 메세지 검증
+        val exception = assertThrows<IllegalArgumentException> {
+            pointManager.checkBalanceSufficient(id, amountToUse)
+        }
+        assertEquals("잔고가 부족합니다.", exception.message)
+    }
+
+    @Test
+    fun `포인트_충전_또는_사용_이력이_없는_경우에도_조회에_성공한다`() {
+        // given: 유효한 아이디
+        val id: Long = 1L
+
+        // when: 현재 포인트 조회
+        val userPoint = pointManager.getPoints(id)
+
+        // then: 현재 포인트가 0임을 검증
+        assertEquals(0, userPoint.point)
+    }
+
+    @Test
+    fun `포인트_충전_또는_사용_이력이_있는_경우_포인트_조회에_성공한다`() {
+        // given
+        val id: Long = 2L
+
+        // when: 2번의 충전 이력이 있음을 가정
+        pointManager.chargePoints(id, 10000L)
+        pointManager.chargePoints(id, 20000L)
+        val userPoint = pointManager.getPoints(id)
+
+        // then: 현재 포인트 조회 결과가 이전 2번 충전한 결과와 같음을 검증
+        assertEquals(30000L, userPoint.point)
+    }
+
+    @Test
+    fun `존재할_수_없는_아이디에_대한_포인트_조회는_실패한다`() {
+        // given: 유효하지 않은 아이디
+        val id: Long = 0L
+
+        // when & then: 유효하지 않은 아이디로 포인트 조회한 결과
+        // IllegalArgumentException이 발생하고 예외 메세지가 예상한 바와 같음을 검증
+        val exception = assertThrows<IllegalArgumentException> {
+            pointManager.getPoints(id)
+        }
+        assertEquals("아이디가 유효하지 않습니다.", exception.message)
+    }
+
+    /**
+     * 포인트 내역 조회 테스트
+     */
     @Test
     fun `포인트_충전_또는_사용_이력이_없어도_포인트_내역_조회에_성공한다`() {
         // given: 유효한 아이디
-        val id: Long = 3L
+        val id: Long = 4L
 
         // when: 신규 유저의 pointHistory 조회
-        val pointHistory = pointManager.getHistories(id)
+        val pointHistory = pointManager.getHistory(id)
 
         // then: 충전/사용 이력 0회의 내역 조회 검증
         assertEquals(0, pointHistory.size)
     }
 
+    @Test
+    fun `포인트_충전_또는_사용_이력이_있는_경우_포인트_내역_조회에_성공한다`() {
+        // given: 유효한 아이디
+        val id: Long = 5L
+
+        // when: 3번 충전, 1번 사용의 이력이 있음을 가정
+        pointManager.chargePoints(id, 10000L)
+        pointManager.chargePoints(id, 20000L)
+        pointManager.usePoints(id, 20000L)
+        pointManager.chargePoints(id, 30000L)
+        val pointHistory = pointManager.getHistory(id)
+
+        // then: 잔고, 충전/사용 횟수, 충전/사용 타입 검증
+        assertEquals(10000L, pointHistory[0].amount)
+        assertEquals(4, pointHistory.size)
+        assertEquals(TransactionType.USE, pointHistory[2].type)
+    }
+
+    @Test
+    fun `존재할_수_없는_아이디에_대한_포인트_내역_조회는_실패한다`() {
+        // given: 유효하지 않은 아이디
+        val id = -1L
+
+        // when & then: 유효하지 않은 아이디로 포인트 내역 조회한 결과
+        // IllegalArgumentException이 발생하고 예외 메세지가 예상한 바와 같음을 검증
+        val exception = assertThrows<IllegalArgumentException> {
+            pointManager.getHistory(id)
+        }
+        assertEquals("아이디가 유효하지 않습니다.", exception.message)
+    }
+
+    /**
+     * 포인트 충전 테스트
+     */
     @Test
     fun `포인트_충전에_성공한다`() {
         // given: 유효한 아이디
@@ -71,6 +150,40 @@ class UserPointManagerTest @Autowired constructor(
     }
 
     @Test
+    fun `충전할_포인트가_음수이거나_0이면_충전에_실패한다`() {
+        // given: 유효한 아이디와 유효하지 않은 충전 포인트
+        val id = 7L
+        val amountToCharge = -500L
+
+        // when: 1000 포인트 충전에는 성공 후 -500 포인트 충전으로 예외 발생
+        pointManager.chargePoints(7L, 1000L)
+        val exception = assertThrows<IllegalArgumentException> {
+            pointManager.chargePoints(id, amountToCharge)
+        }
+
+        // then: InterrupedException 발생 메세지 및 예외 발생 전후 포인트 일치 상태 검증
+        assertEquals("충전할 포인트는 양수여야 합니다.", exception.message)
+        assertEquals(1000L, pointManager.getPoints(7L).point)
+    }
+
+    @Test
+    fun `존재할_수_없는_아이디에_대한_포인트_충전은_실패한다`() {
+        // given: 유효하지 않은 아이디와 유효한 포인트
+        val id = -1L
+        val amount = 10000L
+
+        // when & then: 유효하지 않은 아이디로 포인트 조회한 결과
+        // IllegalArgumentException이 발생하고 예외 메세지가 예상한 바와 같음을 검증
+        val exception = assertThrows<IllegalArgumentException> {
+            pointManager.chargePoints(id, amount)
+        }
+        assertEquals("아이디가 유효하지 않습니다.", exception.message)
+    }
+
+    /**
+     * 포인트 사용 테스트
+     */
+    @Test
     fun 포인트_사용에_성공한다() {
         // given: 유효한 아이디와 유효한 포인트
         val id = 8L
@@ -82,5 +195,52 @@ class UserPointManagerTest @Autowired constructor(
 
         // then: 잔고에서 사용한 포인트를 뺀 값이 저장된 현재 포인트와 같은지 검증
         assertEquals(95000, userPoint.point)
+
+    }
+
+    @Test
+    fun `잔고_부족으로_포인트_사용에_실패한다`() {
+        // given: 유효한 아이디와 사용할 포인트
+        val id = 9L
+        val amountToUse = 1000000L
+
+        // when: 잔고가 10000 포인트 있음을 가정
+        pointManager.chargePoints(id, 10000L)
+
+        // then: 잔고 이상의 포인트를 사용하여 IllegalArgumentException이 발생
+        val exception = assertThrows<IllegalArgumentException> {
+            pointManager.usePoints(id, amountToUse)
+        }
+        // 예외 메세지 및 예외 발생 전후 포인트 일치 상태 검증
+        assertEquals("잔고가 부족합니다.", exception.message)
+        assertEquals(10000, pointManager.getPoints(9L).point)
+    }
+
+    @Test
+    fun `사용할_포인트가_0이거나_음수이면_포인트_사용에_실패한다`() {
+        // given: 유효한 아이디와 유효하지 않은 포인트
+        val id = 10L
+        val amountToUse = 0L
+
+        // when & then: 유효하지 않은 포인트 사용을 시도한 결과
+        // IllegalArgumentException이 발생하고 예외 메세지가 예상한 바와 같음을 검증
+        val exception = assertThrows<IllegalArgumentException> {
+            pointManager.usePoints(id, amountToUse)
+        }
+        assertEquals("사용할 포인트는 양수여야 합니다.", exception.message)
+    }
+
+    @Test
+    fun `존재할_수_없는_아이디에_대한_포인트_사용은_실패한다`() {
+        // given: 유효하지 않은 아이디와 유효한 포인트
+        val inValidId = -1L
+        val amountToUse = 10000L
+
+        // when & then: 유효하지 않은 아이디의 포인트 사용을 시도한 결과
+        val exception = assertThrows<IllegalArgumentException> {
+            pointManager.chargePoints(inValidId, amountToUse)
+        }
+        // IllegalArgumentException이 발생하고 예외 메세지가 예상한 바와 같음을 검증
+        assertEquals("아이디가 유효하지 않습니다.", exception.message)
     }
 }
