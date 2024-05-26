@@ -13,7 +13,7 @@ class PointManager (
     private val pointHistoryRepository: PointHistoryRepository,
     ) {
 
-    fun validateId(userId: Long) {
+    fun validateUserId(userId: Long) {
         if (userId <= 0) {
             throw IllegalArgumentException("아이디가 유효하지 않습니다.")
         }
@@ -31,30 +31,31 @@ class PointManager (
     }
 
     fun checkBalanceSufficient(userId: Long, amountToUse: Long) {
-        val currentBalance = userPointRepository.selectById(userId).point
-        if (amountToUse > currentBalance) {
+        val currentBalance = userPointRepository.selectById(userId)?.point
+        if (currentBalance != null && amountToUse > currentBalance) {
             throw IllegalArgumentException("잔고가 부족합니다.")
         }
     }
 
-    fun getPoints(userId: Long): UserPoint {
-        validateId(userId)
+    fun findPoints(userId: Long): UserPoint? {
+        validateUserId(userId)
 
-        val userPoint = userPointRepository.selectById(userId)
-        return userPoint
+        return userPointRepository.selectById(userId)
+            ?: throw IllegalArgumentException("${userId}번 유저의 정보가 없습니다.")
     }
 
-    fun getHistory(userId: Long): List<PointHistory> {
-        validateId(userId)
-        val userHistory = pointHistoryRepository.selectAllByUserId(userId)
-        return userHistory
+    fun findHistory(userId: Long): List<PointHistory>? {
+        validateUserId(userId)
+
+        return pointHistoryRepository.selectAllByUserId(userId)
+            ?: throw IllegalArgumentException("${userId}번 유저의 정보가 없습니다.")
     }
 
     fun chargePoints(userId: Long, amountToCharge: Long): UserPoint {
-        validateId(userId)
+        validateUserId(userId)
         validateAmount(amountToCharge, TransactionType.CHARGE)
 
-        val currentBalance = userPointRepository.selectById(userId).point
+        val currentBalance = userPointRepository.selectById(userId)?.point ?: 0 // 최초 충전 시에는 잔고가 없으므로 0으로 초기화
         val updatedUserPoint = userPointRepository.insertOrUpdate(userId, currentBalance + amountToCharge)
         pointHistoryRepository.insert(
             userId,
@@ -66,11 +67,12 @@ class PointManager (
     }
 
     fun usePoints(userId: Long, amountToUse: Long): UserPoint {
-        validateId(userId)
+        validateUserId(userId)
         validateAmount(amountToUse, TransactionType.USE)
         checkBalanceSufficient(userId, amountToUse)
 
-        val currentBalance = userPointRepository.selectById(userId).point
+        val currentBalance = userPointRepository.selectById(userId)?.point
+            ?: throw IllegalArgumentException("{$userId}번 유저의 정보가 없습니다.")
         val updatedBalance = userPointRepository.insertOrUpdate(userId, currentBalance - amountToUse)
         pointHistoryRepository.insert(updatedBalance.id, updatedBalance.point, TransactionType.USE, updatedBalance.updateMillis)
 

@@ -14,17 +14,14 @@ class PointService(
 ) {
     // 특정 유저의 포인트 조회
     @Transactional
-    fun getPoints(userId: Long): UserPoint {
-        val userPoint = pointManager.getPoints(userId)
-        return userPoint
+    fun findPoints(userId: Long): UserPoint? {
+        return pointManager.findPoints(userId)
     }
-
 
     // 특정 유저의 포인트 충전/이용 내역 조회
     @Transactional
-    fun getHistory(userId: Long): List<PointHistory> {
-        val userHistory = pointManager.getHistory(userId)
-        return userHistory
+    fun findHistory(userId: Long): List<PointHistory>? {
+        return pointManager.findHistory(userId)
     }
 
     // 특정 유저의 포인트 충전

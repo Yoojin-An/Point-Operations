@@ -48,10 +48,10 @@ class PointServiceIntegrationTest @Autowired constructor (
 
         val totalTasks = CompletableFuture.allOf(chargeTask1, chargeTask2, useTask1)
         totalTasks.join() // chargeTask1, chargeTask2, useTask1 동시 실행
-        val result = pointService.getPoints(id)
+        val result = pointService.findPoints(id)
 
         //then
-        assertEquals(initialPoint - amountToUse1 + amountToCharge1 + amountToCharge2, result.point)
+        assertEquals(initialPoint - amountToUse1 + amountToCharge1 + amountToCharge2, result?.point)
     }
 
     /**
@@ -87,7 +87,7 @@ class PointServiceIntegrationTest @Autowired constructor (
         }
         val user1GetTask1 = CompletableFuture.runAsync {
             try {
-                pointService.getPoints(id1)
+                pointService.findPoints(id1)
             } catch (e: InterruptedException) {
                 Thread.currentThread().interrupt()
             }
@@ -142,13 +142,13 @@ class PointServiceIntegrationTest @Autowired constructor (
         )
         totalTasks.join() // 모든 태스크 동시 실행
 
-        val user1Result = pointService.getPoints(id1)
-        val user2Result = pointService.getPoints(id2)
-        val user3Result = pointService.getPoints(id3)
+        val user1Result = pointService.findPoints(id1)
+        val user2Result = pointService.findPoints(id2)
+        val user3Result = pointService.findPoints(id3)
 
         //then
-        assertEquals(initialPoint + amountToCharge + amountToCharge, user1Result.point)
-        assertEquals(initialPoint - amountToUse + amountToCharge + amountToCharge, user2Result.point)
-        assertEquals(initialPoint - amountToUse - amountToUse + amountToCharge, user3Result.point)
+        assertEquals(initialPoint + amountToCharge + amountToCharge, user1Result?.point)
+        assertEquals(initialPoint - amountToUse + amountToCharge + amountToCharge, user2Result?.point)
+        assertEquals(initialPoint - amountToUse - amountToUse + amountToCharge, user3Result?.point)
     }
 }

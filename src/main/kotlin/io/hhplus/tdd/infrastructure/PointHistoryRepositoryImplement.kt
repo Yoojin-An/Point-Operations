@@ -17,7 +17,7 @@ class PointHistoryRepositoryImplement(
         return pointHistoryTable.insert(id, amount, transactionType, updateMillis)
     }
 
-    override fun selectAllByUserId(userId: Long): List<PointHistory> {
+    override fun selectAllByUserId(userId: Long): List<PointHistory>? {
         return pointHistoryTable.selectAllByUserId(userId)
     }
 }

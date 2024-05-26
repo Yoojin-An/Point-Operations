@@ -8,5 +8,5 @@ interface PointHistoryRepository {
                amount: Long,
                transactionType: TransactionType,
                updateMillis: Long): PointHistory
-    fun selectAllByUserId(userId: Long): List<PointHistory>
+    fun selectAllByUserId(userId: Long): List<PointHistory>?
 }

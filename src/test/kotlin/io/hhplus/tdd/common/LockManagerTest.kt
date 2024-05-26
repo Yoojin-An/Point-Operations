@@ -18,12 +18,12 @@ class LockManagerTest @Autowired constructor(
     @Test
     fun 락_획득_시_파라미터로_받은_함수를_실행시킨다() {
         // given
-        val key = 1L
+        val userId = 1L
         val result = "Success"
         val function = Supplier { result }
 
         // when
-        val actualResult = lockManager.executeFunctionWithLock(key, function)
+        val actualResult = lockManager.executeFunctionWithLock(userId, function)
 
         // then
         assertEquals(result, actualResult)
@@ -43,7 +43,7 @@ class LockManagerTest @Autowired constructor(
         lockMap[userId.toString()] = AlwaysFailingLock()
 
         // when
-        val exception = assertThrows<RuntimeException> {
+        val exception = assertThrows<InterruptedException> {
             lockManager.executeFunctionWithLock(userId, function)
         }
 

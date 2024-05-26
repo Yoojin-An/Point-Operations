@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository
 class UserPointRepositoryImplement(
     private val userPointTable: UserPointTable
 ): UserPointRepository {
-    override fun selectById(id: Long): UserPoint {
+    override fun selectById(id: Long): UserPoint? {
         return userPointTable.selectById(id)
     }
 

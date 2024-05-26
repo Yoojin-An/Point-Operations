@@ -19,18 +19,18 @@ class PointController(
     @GetMapping("{id}")
     fun getPoints(
         @PathVariable id: Long,
-    ): UserPoint {
-        val userPoint = pointService.getPoints(id)
-        logger.info("id ${id}번 유저가 잔고(${userPoint.point}p)를 조회했습니다.")
+    ): UserPoint? {
+        val userPoint = pointService.findPoints(id)
+        logger.info("id ${id}번 유저가 잔고(${userPoint?.point}p)를 조회했습니다.")
         return userPoint
     }
 
-    // 특정 유저의 포인트 충전/사용용 내역 조회
+    // 특정 유저의 포인트 충전/사용 내역 조회
     @GetMapping("{id}/histories")
     fun getHistory(
         @PathVariable id: Long,
-    ): List<PointHistory> {
-        val pointHistory = pointService.getHistory(id)
+    ): List<PointHistory>? {
+        val pointHistory = pointService.findHistory(id)
         logger.info("id ${id}번 유저가 포인트 충전/사용 내역을 조회했습니다. :: $pointHistory")
         return pointHistory
     }

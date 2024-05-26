@@ -3,11 +3,11 @@ package io.hhplus.tdd.service
 import org.junit.jupiter.api.Assertions.assertEquals
 import io.hhplus.tdd.domain.point.PointService
 import io.hhplus.tdd.domain.point.model.TransactionType
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import java.lang.AssertionError
 
 @SpringBootTest
 class PointServiceUnitTest @Autowired constructor (
@@ -17,15 +17,17 @@ class PointServiceUnitTest @Autowired constructor (
      * 포인트 조회 테스트
      */
     @Test
-    fun `포인트_충전_또는_사용_이력이_없는_경우에도_조회에_성공한다`() {
-        // given: 유효한 아이디
-        val id: Long = 1L
+    fun 포인트_사용시_잔고가_부족하면_InterruptedException을_던진다() {
+        // given: 잔고가 부족한 상황
+        val id = 1L
+        val amountToUse = 5000L
 
-        // when: 현재 포인트 조회
-        val userPoint = pointService.getPoints(id)
-
-        // then: 현재 포인트가 0임을 검증
-        assertEquals(0, userPoint.point)
+        // when & then: 초기 포인트 1000인 상황에서 5000 포인트 사용 시 InterruptedException 예외 발생 및 예외 메세지 검증
+        pointService.chargePoints(id, 1000)
+        val exception = assertThrows<InterruptedException> {
+            pointService.usePoints(id, amountToUse)
+        }
+        assertEquals("잔고가 부족합니다.", exception.message)
     }
 
     @Test
@@ -36,10 +38,23 @@ class PointServiceUnitTest @Autowired constructor (
         // when: 2번의 충전 이력이 있음을 가정
         pointService.chargePoints(id, 10000L)
         pointService.chargePoints(id, 20000L)
-        val userPoint = pointService.getPoints(id)
+        val userPoint = pointService.findPoints(id)
 
         // then: 현재 포인트 조회 결과가 이전 2번 충전한 결과와 같음을 검증
-        assertEquals(30000L, userPoint.point)
+        assertEquals(30000L, userPoint?.point)
+    }
+
+    @Test
+    fun `포인트_충전_이력이_없는_경우_조회에_실패한다`() {
+        // given: 유효한 아이디
+        val id: Long = 1L
+
+        // when: 한 번도 포인트를 충전한 적이 없는 아이디로 포인트 조회한 결과
+        // IllegalArgumentException이 발생하고 예외 메세지가 예상한 바와 같음을 검증
+        val exception = assertThrows<IllegalArgumentException> {
+            pointService.findPoints(id)
+        }
+        assertEquals("${id}번 유저의 정보가 없습니다.", exception.message)
     }
 
     @Test
@@ -50,7 +65,7 @@ class PointServiceUnitTest @Autowired constructor (
         // when & then: 유효하지 않은 아이디로 포인트 조회한 결과
         // IllegalArgumentException이 발생하고 예외 메세지가 예상한 바와 같음을 검증
         val exception = assertThrows<IllegalArgumentException> {
-            pointService.getPoints(id)
+            pointService.findPoints(id)
         }
         assertEquals("아이디가 유효하지 않습니다.", exception.message)
     }
@@ -58,17 +73,6 @@ class PointServiceUnitTest @Autowired constructor (
     /**
      * 포인트 내역 조회 테스트
      */
-    @Test
-    fun `포인트_충전_또는_사용_이력이_없어도_포인트_내역_조회에_성공한다`() {
-        // given: 유효한 아이디
-        val id: Long = 4L
-
-        // when: 신규 유저의 pointHistory 조회
-        val pointHistory = pointService.getHistory(id)
-
-        // then: 충전/사용 이력 0회의 내역 조회 검증
-        assertEquals(0, pointHistory.size)
-    }
 
     @Test
     fun `포인트_충전_또는_사용_이력이_있는_경우_포인트_내역_조회에_성공한다`() {
@@ -80,12 +84,26 @@ class PointServiceUnitTest @Autowired constructor (
         pointService.chargePoints(id, 20000L)
         pointService.usePoints(id, 20000L)
         pointService.chargePoints(id, 30000L)
-        val pointHistory = pointService.getHistory(id)
+        val pointHistory = pointService.findHistory(id) ?:
+        throw AssertionError()
 
         // then: 잔고, 충전/사용 횟수, 충전/사용 타입 검증
         assertEquals(10000L, pointHistory[0].amount)
         assertEquals(4, pointHistory.size)
         assertEquals(TransactionType.USE, pointHistory[2].type)
+    }
+
+    @Test
+    fun `포인트_충전_이력이_없는_경우_포인트_내역_조회에_실패한다`() {
+        // given: 유효한 아이디
+        val id: Long = 4L
+
+        // when: 한 번도 포인트를 충전한 적이 없는 아이디로 포인트 내역 조회한 결과
+        // IllegalArgumentException이 발생하고 예외 메세지가 예상한 바와 같음을 검증
+        val exception = assertThrows<IllegalArgumentException> {
+            pointService.findHistory(id)
+        }
+        assertEquals("${id}번 유저의 정보가 없습니다.", exception.message)
     }
 
     @Test
@@ -96,7 +114,7 @@ class PointServiceUnitTest @Autowired constructor (
         // when & then: 유효하지 않은 아이디로 포인트 내역 조회한 결과
         // IllegalArgumentException이 발생하고 예외 메세지가 예상한 바와 같음을 검증
         val exception = assertThrows<IllegalArgumentException> {
-            pointService.getHistory(id)
+            pointService.findHistory(id)
         }
         assertEquals("아이디가 유효하지 않습니다.", exception.message)
     }
@@ -130,7 +148,7 @@ class PointServiceUnitTest @Autowired constructor (
 
         // then: InterrupedException 발생 메세지 및 예외 발생 전후 포인트 일치 상태 검증
         assertEquals("충전할 포인트는 양수여야 합니다.", exception.message)
-        assertEquals(1000L, pointService.getPoints(7L).point)
+        assertEquals(1000L, pointService.findPoints(7L)?.point)
     }
 
     @Test
@@ -174,13 +192,13 @@ class PointServiceUnitTest @Autowired constructor (
         // when: 잔고가 10000 포인트 있음을 가정
         pointService.chargePoints(id, 10000L)
 
-        // then: 잔고 이상의 포인트를 사용하여 InterruptedException이 발생
+        // then: 잔고 이상의 포인트를 사용하여 IllegalArgumentException이 발생
         val exception = assertThrows<InterruptedException> {
             pointService.usePoints(id, amountToUse)
         }
         // 예외 메세지 및 예외 발생 전후 포인트 일치 상태 검증
         assertEquals("잔고가 부족합니다.", exception.message)
-        assertEquals(10000, pointService.getPoints(9L).point)
+        assertEquals(10000, pointService.findPoints(9L)?.point)
     }
 
     @Test
@@ -190,7 +208,7 @@ class PointServiceUnitTest @Autowired constructor (
         val amountToUse = 0L
 
         // when & then: 유효하지 않은 포인트 사용을 시도한 결과
-        // InterruptedException이 발생하고 예외 메세지가 예상한 바와 같음을 검증
+        // InterruptedExceptionn이 발생하고 예외 메세지가 예상한 바와 같음을 검증
         val exception = assertThrows<InterruptedException> {
             pointService.usePoints(id, amountToUse)
         }

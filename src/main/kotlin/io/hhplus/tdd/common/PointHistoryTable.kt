@@ -18,7 +18,7 @@ class PointHistoryTable {
         transactionType: TransactionType,
         updateMillis: Long,
     ): PointHistory {
-        Thread.sleep(Math.random().toLong() * 300L)
+        Thread.sleep(Math.random().toLong() * 300L) // 왜 있지?
         val history = PointHistory(
             id = cursor++,
             userId = id,
@@ -30,7 +30,8 @@ class PointHistoryTable {
         return history
     }
 
-    fun selectAllByUserId(userId: Long): List<PointHistory> {
-        return table.filter { it.userId == userId }
+    fun selectAllByUserId(userId: Long): List<PointHistory>? {
+        val result = table.filter { it.userId == userId }
+        return if ( result.isEmpty() ) null else result
     }
 }
