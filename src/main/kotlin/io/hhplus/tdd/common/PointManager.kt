@@ -31,8 +31,9 @@ class PointManager (
     }
 
     fun checkBalanceSufficient(userId: Long, amountToUse: Long) {
-        val currentBalance = userPointRepository.selectById(userId)?.point
-        if (currentBalance != null && amountToUse > currentBalance) {
+        val currentBalance = userPointRepository.selectById(userId)
+            ?: throw IllegalArgumentException("${userId}번 유저의 정보가 없습니다.")
+        if (amountToUse > currentBalance.point) {
             throw IllegalArgumentException("잔고가 부족합니다.")
         }
     }
