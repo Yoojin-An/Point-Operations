@@ -3,6 +3,7 @@ package io.hhplus.tdd.controller
 import io.hhplus.tdd.domain.point.model.PointHistory
 import io.hhplus.tdd.domain.point.PointService
 import io.hhplus.tdd.domain.point.dto.ChargeRequest
+import io.hhplus.tdd.domain.point.dto.UseRequest
 import io.hhplus.tdd.domain.point.model.UserPoint
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -50,10 +51,10 @@ class PointController(
     @PatchMapping("{id}/use")
     fun usePoints(
         @PathVariable id: Long,
-        @RequestBody chargeRequest: ChargeRequest,
+        @RequestBody useRequest: UseRequest,
     ): UserPoint {
-        val userPoint = pointService.usePoints(id, chargeRequest.amount)
-        logger.info("id ${id}번 유저가 ${chargeRequest.amount}포인트를 사용했습니다.")
+        val userPoint = pointService.usePoints(id, useRequest.amount)
+        logger.info("id ${id}번 유저가 ${useRequest.amount}포인트를 사용했습니다.")
         return userPoint
     }
 }
